@@ -1,16 +1,13 @@
-#include <decorator/sides_decorator.h>
-#include <iostream>
+#include <decorator/side_decorator.h>
 
 namespace decorator {
 
-void Sides::ToOrder(Order *order)
+void Side::ToOrder(Order_U order)
 {
-    if (nullptr == order_) {
-        order_ = order;
-    }
+    order_ = std::move(order);
 }
 
-int Sides::GetCost(void)
+int Side::GetCost(void)
 {
     if (nullptr != order_) {
         return cost_ + order_->GetCost();
@@ -18,7 +15,7 @@ int Sides::GetCost(void)
     return cost_;
 }
 
-std::string Sides::GetItemName(void)
+std::string Side::GetItemName(void)
 {
     if (nullptr != order_) {
         return order_->GetItemName() + ", " +  name_;
