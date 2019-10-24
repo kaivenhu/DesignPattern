@@ -7,7 +7,6 @@ namespace decorator {
 class MainDish: public Order {
     public:
         MainDish(int cost, const std::string name): cost_(cost), name_(name){};
-        ~MainDish() override {};
         int GetCost(void) override;
         std::string GetItemName(void) override;
     protected:
